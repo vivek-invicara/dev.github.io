@@ -147,6 +147,20 @@ let files = {
         return scriptValues
     },
 
+    async getContributor(input, libraries, ctx) {
+        let { PlatformApi } = libraries
+        let iaf_ext_fileAttributes = await PlatformApi.IafScriptEngine.getVar('iaf_ext_fileAttributes')
+        let scriptValues = { Contributor: iaf_ext_fileAttributes.Contributor }
+        return scriptValues
+    },
+
+    async getBuilding(input, libraries, ctx) {
+        let { PlatformApi } = libraries
+        let iaf_ext_fileAttributes = await PlatformApi.IafScriptEngine.getVar('iaf_ext_fileAttributes')
+        let scriptValues = { Building: iaf_ext_fileAttributes.Building }
+        return scriptValues
+    },
+
     async getLevelsAndLocations(input, libraries, ctx) {
         let { PlatformApi } = libraries
         let iaf_ext_fileAttributes = await PlatformApi.IafScriptEngine.getVar('iaf_ext_fileAttributes')
@@ -165,7 +179,7 @@ let files = {
         let scriptValues = { "File Discipline": iaf_ext_fileAttributes["File Discipline"] }
         return scriptValues
     },
-    async getManufacturers(input, libraries, ctx) {
+    async getManufacturer(input, libraries, ctx) {
         let { PlatformApi } = libraries
         let iaf_ext_files_coll = await PlatformApi.IafScriptEngine.getVar('iaf_ext_files_coll')
         let distinctManu = await PlatformApi.IafScriptEngine.getDistinct({
@@ -178,13 +192,13 @@ let files = {
         let scriptValues = { Manufacturer: sortedManu }
         return scriptValues
     },
-    async getFileTypes(input, libraries, ctx) {
+    async getFileType(input, libraries, ctx) {
         let { PlatformApi } = libraries
         let iaf_ext_fileAttributes = await PlatformApi.IafScriptEngine.getVar('iaf_ext_fileAttributes')
         let scriptValues = { 'File Type': iaf_ext_fileAttributes['File Type'] }
         return scriptValues
     },
-    async getRevisions(input, libraries, ctx) {
+    async getRevision(input, libraries, ctx) {
         let { PlatformApi } = libraries
         let iaf_ext_files_coll = await PlatformApi.IafScriptEngine.getVar('iaf_ext_files_coll')
         let distinctRevision = await PlatformApi.IafScriptEngine.getDistinct({
@@ -197,7 +211,7 @@ let files = {
         let scriptValues = { Revision: sortedRevision }
         return scriptValues
     },
-    async getStageDescriptions(input, libraries, ctx) {
+    async getStageDescription(input, libraries, ctx) {
         let { PlatformApi } = libraries
         let iaf_ext_fileAttributes = await PlatformApi.IafScriptEngine.getVar('iaf_ext_fileAttributes')
         let scriptValues = { 'Stage Description': iaf_ext_fileAttributes['Stage Description'] }
