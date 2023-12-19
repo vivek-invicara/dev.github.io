@@ -505,8 +505,8 @@ const groupBy = (objectArray, property) => {
                     "format": "hex"
                 });
             type.properties = groupBy(type.properties, "dName");
-            if (assetTypeMap && type.properties.hasOwnProperty("Revit Family") && type.properties.hasOwnProperty("Revit Family Type")) {
-                let _myRow = assetTypeMap.find(x => x["Revit Family"] == type.properties["Revit Family"].val && x["Revit Family Type"] == type.properties["Revit Family Type"].val);
+            if (assetTypeMap && type.properties.hasOwnProperty("Revit Family") && type.properties.hasOwnProperty("Revit Type")) {
+                let _myRow = assetTypeMap.find(x => x["Revit Family"] == type.properties["Revit Family"].val && x["Revit Type"] == type.properties["Revit Type"].val);
                 if (_myRow) {
                     type.dtCategory = _myRow.dtCategory;
                     type.dtType = _myRow.dtType;
